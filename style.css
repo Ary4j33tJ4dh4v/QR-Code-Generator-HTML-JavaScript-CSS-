@@ -1,0 +1,670 @@
+```css
+/* =========================================================
+   RESET
+========================================================= */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+
+/* =========================================================
+   VARIABLES
+========================================================= */
+
+:root {
+    --background: #f4f7fb;
+    --card: #ffffff;
+    --text: #172033;
+    --muted: #6b7280;
+    --border: #dce2ea;
+    --input: #f9fafc;
+    --primary: #4f46e5;
+    --primary-hover: #4338ca;
+    --secondary: #eef1f7;
+    --secondary-hover: #e3e7ef;
+    --success: #16a34a;
+    --shadow: 0 20px 60px rgba(15, 23, 42, 0.12);
+}
+
+
+/* =========================================================
+   DARK MODE
+========================================================= */
+
+body.dark {
+    --background: #0f172a;
+    --card: #182235;
+    --text: #f8fafc;
+    --muted: #94a3b8;
+    --border: #334155;
+    --input: #111827;
+    --primary: #6366f1;
+    --primary-hover: #818cf8;
+    --secondary: #273449;
+    --secondary-hover: #334155;
+    --success: #4ade80;
+    --shadow: 0 20px 60px rgba(0, 0, 0, 0.35);
+}
+
+
+/* =========================================================
+   BODY
+========================================================= */
+
+body {
+    min-height: 100vh;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    padding: 30px;
+
+    font-family:
+        Inter,
+        system-ui,
+        -apple-system,
+        BlinkMacSystemFont,
+        "Segoe UI",
+        sans-serif;
+
+    background: var(--background);
+
+    color: var(--text);
+
+    transition:
+        background 0.3s ease,
+        color 0.3s ease;
+
+    overflow-x: hidden;
+}
+
+
+/* =========================================================
+   BACKGROUND DECORATION
+========================================================= */
+
+.background-circle {
+    position: fixed;
+
+    width: 350px;
+    height: 350px;
+
+    border-radius: 50%;
+
+    filter: blur(80px);
+
+    opacity: 0.25;
+
+    pointer-events: none;
+}
+
+.circle-one {
+    top: -150px;
+    left: -100px;
+
+    background: #6366f1;
+}
+
+.circle-two {
+    right: -150px;
+    bottom: -150px;
+
+    background: #8b5cf6;
+}
+
+
+/* =========================================================
+   MAIN CONTAINER
+========================================================= */
+
+.container {
+    width: 100%;
+    max-width: 700px;
+
+    position: relative;
+
+    z-index: 1;
+}
+
+
+/* =========================================================
+   CARD
+========================================================= */
+
+.card {
+    background: var(--card);
+
+    border: 1px solid var(--border);
+
+    border-radius: 24px;
+
+    padding: 35px;
+
+    box-shadow: var(--shadow);
+
+    transition:
+        background 0.3s ease,
+        border 0.3s ease;
+}
+
+
+/* =========================================================
+   HEADER
+========================================================= */
+
+.header {
+    display: flex;
+
+    align-items: center;
+
+    gap: 15px;
+
+    margin-bottom: 30px;
+}
+
+.logo {
+    width: 58px;
+    height: 58px;
+
+    display: flex;
+
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 16px;
+
+    background: var(--primary);
+
+    color: white;
+
+    font-size: 32px;
+
+    flex-shrink: 0;
+}
+
+.header h1 {
+    font-size: 28px;
+
+    line-height: 1.2;
+
+    margin-bottom: 5px;
+}
+
+.header p {
+    color: var(--muted);
+
+    font-size: 14px;
+}
+
+
+/* =========================================================
+   THEME BUTTON
+========================================================= */
+
+.theme-btn {
+    margin-left: auto;
+
+    width: 42px;
+    height: 42px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    background: var(--secondary);
+
+    color: var(--text);
+
+    cursor: pointer;
+
+    font-size: 18px;
+
+    transition: 0.2s;
+}
+
+.theme-btn:hover {
+    background: var(--secondary-hover);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   INPUT
+========================================================= */
+
+.input-section {
+    margin-bottom: 25px;
+}
+
+.input-section label,
+.option-group label {
+    display: block;
+
+    font-size: 14px;
+
+    font-weight: 600;
+
+    margin-bottom: 8px;
+}
+
+.textarea-wrapper {
+    position: relative;
+}
+
+textarea {
+    width: 100%;
+
+    resize: vertical;
+
+    min-height: 130px;
+
+    padding: 15px;
+
+    padding-bottom: 35px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 14px;
+
+    background: var(--input);
+
+    color: var(--text);
+
+    font-family: inherit;
+
+    font-size: 15px;
+
+    line-height: 1.5;
+
+    outline: none;
+
+    transition: 0.2s;
+}
+
+textarea::placeholder {
+    color: var(--muted);
+}
+
+textarea:focus {
+    border-color: var(--primary);
+
+    box-shadow:
+        0 0 0 3px rgba(79, 70, 229, 0.12);
+}
+
+.character-count {
+    position: absolute;
+
+    right: 12px;
+    bottom: 10px;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+
+/* =========================================================
+   INPUT ACTIONS
+========================================================= */
+
+.input-actions {
+    display: flex;
+
+    gap: 10px;
+
+    margin-top: 10px;
+}
+
+
+/* =========================================================
+   OPTIONS
+========================================================= */
+
+.options {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 15px;
+
+    margin-bottom: 25px;
+}
+
+.option-group select {
+    width: 100%;
+
+    padding: 12px 14px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 12px;
+
+    background: var(--input);
+
+    color: var(--text);
+
+    font-family: inherit;
+
+    font-size: 14px;
+
+    outline: none;
+
+    cursor: pointer;
+}
+
+.option-group select:focus {
+    border-color: var(--primary);
+}
+
+
+/* =========================================================
+   BUTTONS
+========================================================= */
+
+button {
+    font-family: inherit;
+}
+
+.generate-btn,
+.download-btn {
+    width: 100%;
+
+    border: none;
+
+    border-radius: 13px;
+
+    padding: 14px 20px;
+
+    font-size: 15px;
+
+    font-weight: 700;
+
+    cursor: pointer;
+
+    transition:
+        transform 0.2s,
+        background 0.2s,
+        box-shadow 0.2s;
+}
+
+.generate-btn {
+    background: var(--primary);
+
+    color: white;
+
+    box-shadow:
+        0 8px 20px rgba(79, 70, 229, 0.25);
+}
+
+.generate-btn:hover {
+    background: var(--primary-hover);
+
+    transform: translateY(-2px);
+}
+
+.generate-btn:active {
+    transform: translateY(0);
+}
+
+.secondary-btn {
+    padding: 9px 14px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 10px;
+
+    background: var(--secondary);
+
+    color: var(--text);
+
+    font-size: 13px;
+
+    cursor: pointer;
+
+    transition: 0.2s;
+}
+
+.secondary-btn:hover {
+    background: var(--secondary-hover);
+}
+
+
+/* =========================================================
+   STATUS
+========================================================= */
+
+.status {
+    min-height: 22px;
+
+    margin-top: 15px;
+
+    text-align: center;
+
+    color: var(--success);
+
+    font-size: 13px;
+
+    font-weight: 600;
+}
+
+
+/* =========================================================
+   QR SECTION
+========================================================= */
+
+.qr-section {
+    display: none;
+
+    margin-top: 25px;
+
+    padding-top: 25px;
+
+    border-top: 1px solid var(--border);
+}
+
+.qr-section.show {
+    display: block;
+
+    animation: fadeIn 0.3s ease;
+}
+
+.qr-header {
+    margin-bottom: 20px;
+}
+
+.qr-header h2 {
+    font-size: 20px;
+
+    margin-bottom: 4px;
+}
+
+.qr-header p {
+    color: var(--muted);
+
+    font-size: 13px;
+}
+
+
+/* =========================================================
+   QR PREVIEW
+========================================================= */
+
+.qr-preview {
+    display: flex;
+
+    justify-content: center;
+
+    padding: 25px;
+
+    border-radius: 16px;
+
+    background: #ffffff;
+
+    border: 1px solid var(--border);
+}
+
+.qr-container {
+    display: flex;
+
+    align-items: center;
+
+    justify-content: center;
+}
+
+.qr-container img,
+.qr-container canvas {
+    max-width: 100%;
+
+    height: auto;
+
+    display: block;
+}
+
+
+/* =========================================================
+   QR ACTIONS
+========================================================= */
+
+.qr-actions {
+    display: grid;
+
+    grid-template-columns: 1fr 1fr;
+
+    gap: 10px;
+
+    margin-top: 15px;
+}
+
+.download-btn {
+    background: var(--primary);
+
+    color: white;
+}
+
+.download-btn:hover {
+    background: var(--primary-hover);
+
+    transform: translateY(-2px);
+}
+
+
+/* =========================================================
+   FOOTER
+========================================================= */
+
+.footer {
+    margin-top: 25px;
+
+    padding-top: 20px;
+
+    border-top: 1px solid var(--border);
+
+    text-align: center;
+
+    color: var(--muted);
+
+    font-size: 12px;
+}
+
+kbd {
+    padding: 3px 6px;
+
+    border: 1px solid var(--border);
+
+    border-radius: 5px;
+
+    background: var(--secondary);
+
+    font-family: monospace;
+
+    color: var(--text);
+}
+
+
+/* =========================================================
+   ANIMATION
+========================================================= */
+
+@keyframes fadeIn {
+
+    from {
+        opacity: 0;
+
+        transform: translateY(8px);
+    }
+
+    to {
+        opacity: 1;
+
+        transform: translateY(0);
+    }
+
+}
+
+
+/* =========================================================
+   RESPONSIVE
+========================================================= */
+
+@media (max-width: 600px) {
+
+    body {
+        padding: 15px;
+    }
+
+    .card {
+        padding: 22px;
+
+        border-radius: 18px;
+    }
+
+    .header h1 {
+        font-size: 22px;
+    }
+
+    .header p {
+        font-size: 12px;
+    }
+
+    .logo {
+        width: 48px;
+        height: 48px;
+
+        font-size: 26px;
+    }
+
+    .options {
+        grid-template-columns: 1fr;
+    }
+
+    .qr-actions {
+        grid-template-columns: 1fr;
+    }
+
+    .footer {
+        display: none;
+    }
+}
+
+
+/* =========================================================
+   REDUCED MOTION
+========================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+
+        transition-duration: 0.01ms !important;
+    }
+}
+```
