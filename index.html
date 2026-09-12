@@ -1,0 +1,278 @@
+
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta
+        name="viewport"
+        content="width=device-width, initial-scale=1.0"
+    >
+
+    <meta
+        name="description"
+        content="A fast and responsive QR Code Generator for creating downloadable QR codes from text and URLs."
+    >
+
+    <title>QR Code Generator</title>
+
+    <link
+        rel="stylesheet"
+        href="style.css"
+    >
+
+    <!-- QRCode.js -->
+    <script
+        src="https://cdnjs.cloudflare.com/ajax/libs/qrcodejs/1.0.0/qrcode.min.js"
+        integrity="sha512-CNgIRecGo7nphbeZ04Sc13ka07paqdeTu0WR1IM4kNcpmBAUSHSQX0FslNhTDadL4O5SAGapGt4FodqL8My0mA=="
+        crossorigin="anonymous"
+        referrerpolicy="no-referrer"
+    ></script>
+
+    <script
+        src="script.js"
+        defer
+    ></script>
+</head>
+
+<body>
+
+    <!-- Background decoration -->
+    <div class="background-circle circle-one"></div>
+    <div class="background-circle circle-two"></div>
+
+    <main class="container">
+
+        <section class="card">
+
+            <!-- Header -->
+            <header class="header">
+
+                <div class="logo">
+                    <span>▦</span>
+                </div>
+
+                <div>
+                    <h1>QR Code Generator</h1>
+
+                    <p>
+                        Create QR codes instantly from text or URLs.
+                    </p>
+                </div>
+
+                <button
+                    class="theme-btn"
+                    id="themeBtn"
+                    aria-label="Toggle dark mode"
+                    title="Toggle dark mode"
+                >
+                    🌙
+                </button>
+
+            </header>
+
+
+            <!-- Input -->
+            <section class="input-section">
+
+                <label for="inputText">
+                    Text or URL
+                </label>
+
+                <div class="textarea-wrapper">
+
+                    <textarea
+                        id="inputText"
+                        placeholder="Enter text, URL, contact information, or anything else..."
+                        rows="5"
+                        maxlength="2000"
+                        aria-label="Text or URL to encode"
+                    ></textarea>
+
+                    <span
+                        class="character-count"
+                        id="characterCount"
+                    >
+                        0 / 2000
+                    </span>
+
+                </div>
+
+
+                <div class="input-actions">
+
+                    <button
+                        type="button"
+                        class="secondary-btn"
+                        id="pasteBtn"
+                    >
+                        📋 Paste
+                    </button>
+
+                    <button
+                        type="button"
+                        class="secondary-btn"
+                        id="clearBtn"
+                    >
+                        🗑 Clear
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- Options -->
+            <section class="options">
+
+                <div class="option-group">
+
+                    <label for="size">
+                        QR Code Size
+                    </label>
+
+                    <select id="size">
+
+                        <option value="200">
+                            Small — 200 × 200
+                        </option>
+
+                        <option value="300" selected>
+                            Medium — 300 × 300
+                        </option>
+
+                        <option value="400">
+                            Large — 400 × 400
+                        </option>
+
+                        <option value="500">
+                            Extra Large — 500 × 500
+                        </option>
+
+                    </select>
+
+                </div>
+
+
+                <div class="option-group">
+
+                    <label for="errorCorrection">
+                        Error Correction
+                    </label>
+
+                    <select id="errorCorrection">
+
+                        <option value="L">
+                            Low
+                        </option>
+
+                        <option value="M" selected>
+                            Medium
+                        </option>
+
+                        <option value="Q">
+                            High
+                        </option>
+
+                        <option value="H">
+                            Maximum
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </section>
+
+
+            <!-- Generate -->
+            <button
+                class="generate-btn"
+                id="generateBtn"
+            >
+                <span>⚡</span>
+                Generate QR Code
+            </button>
+
+
+            <!-- Status -->
+            <div
+                class="status"
+                id="status"
+                role="status"
+                aria-live="polite"
+            ></div>
+
+
+            <!-- QR Result -->
+            <section
+                class="qr-section"
+                id="qrSection"
+            >
+
+                <div class="qr-header">
+
+                    <div>
+                        <h2>Your QR Code</h2>
+
+                        <p id="generatedTime">
+                            Ready to generate
+                        </p>
+                    </div>
+
+                </div>
+
+
+                <div class="qr-preview">
+
+                    <div
+                        class="qr-container"
+                        id="qrContainer"
+                    ></div>
+
+                </div>
+
+
+                <div class="qr-actions">
+
+                    <button
+                        class="download-btn"
+                        id="downloadBtn"
+                    >
+                        💾 Download PNG
+                    </button>
+
+                    <button
+                        class="secondary-btn"
+                        id="copyBtn"
+                    >
+                        📋 Copy Text
+                    </button>
+
+                </div>
+
+            </section>
+
+
+            <!-- Keyboard hint -->
+            <footer class="footer">
+
+                <span>
+                    💡 Tip: Press
+                    <kbd>Ctrl</kbd>
+                    +
+                    <kbd>Enter</kbd>
+                    to generate
+                </span>
+
+            </footer>
+
+        </section>
+
+    </main>
+
+</body>
+</html>
+</html>
+
